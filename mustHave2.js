@@ -38,7 +38,7 @@ function loadGeoJSON () {
                     }
                 } else {
                     feature.setProperty('globantOffice',
-                            'Globant {lat:' + latlng.lat + ',lng:' + lanlng.lng + '}';
+                            'Globant {lat:' + parseFloat(feature.getGeometry().get().lat()) + ',lng:' + parseFloat(feature.getGeometry().get().lng()) + '}');
                 }
             });
         });    
