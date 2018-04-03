@@ -34,9 +34,11 @@ function loadGeoJSON () {
                 if (status === google.maps.GeocoderStatus.OK) {
                     if (results[0]) {
                         feature.setProperty('globantOffice',
-                            'Globant ' +
-                            buildGlobantLocation(results[0]));
+                            'Globant ' + buildGlobantLocation(results[0]));
                     }
+                } else {
+                    feature.setProperty('globantOffice',
+                            'Globant {lat:' + latlng.lat + ',lng:' + lanlng.lng + '}';
                 }
             });
         });    
