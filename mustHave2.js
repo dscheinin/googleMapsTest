@@ -46,7 +46,8 @@ function loadGeoJSON () {
 }
 
 function displayNearestLocations() {
-    nearestLocationsPanel.innerHTML = "Nearest locations from current location:<br/>";
+    var topNSelected = document.getElementById("topLocations") ? document.getElementById("topLocations").value : 1 ;
+    nearestLocationsPanel.innerHTML = "Nearest top " + topNSelected + " locations from current location:<br/>";
     var distanceToLocation = new Array();
     map.data.forEach(function(feature) {
         var distance = google.maps.geometry.spherical.computeDistanceBetween(currentPosition, feature.getGeometry().get()) / 1000;

@@ -13,7 +13,8 @@
         body {
             height: 100%;
             margin: 0;
-            padding: 0;
+            padding: 1%;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
         }
         
         .container {
@@ -22,28 +23,31 @@
         
         .displayPanel {
             clear: both;
-            width: 90%;
+            padding: 1%;
             min-height: 1em;
         }
         
         .legendPanel {
+            padding: 1%;
             height: 1em;
+            font-weight: bolder;
         }
         
         .drivingDistancePanel {
             background-color: blue;
+            visibility: hidden;
         }
         
         .directionsPanel {
-            background-color: red;
+            background-color:lightslategrey;
         }
         
         .nearestLocationsPanel {
-            background-color: yellow;
+            background-color:lightgray;
         }
         
         #map {
-            width: 90%;
+            width: 100%;
             height: 50%
         }
     </style>
@@ -62,26 +66,24 @@
         <label for="addressInput">Search location:</label>
         <input type="text" id="addressInput" size="50" />
     </div>
-    <div>
-        <label for="topLocations">Select how many locations you want to see the distance:</label>
-        <select id="topLocations" onchange="displayNearestLocations();">
-            <option value="38">All</option>
-            <option value="30">30</option>
-            <option value="20">20</option>
-            <option value="10" selected>10</option>
-        </select>
-    </div>
-    <div>
-        <div class="legendPanel nearestLocationsPanel">Nearest Locations</div>
-        <div class="legendPanel directionsPanel">Driving Directions</div>
-        <div class="legendPanel drivingDistancePanel">Driving Distance</div>
-    </div>
 
     <div id="map"></div>
 
     <div class="container">
+        <div class="legendPanel nearestLocationsPanel"><h2>Nearest Locations</h2></div>
+        <div class="legendPanel nearestLocationsPanel">
+            <b><label for="topLocations">Select how many locations you want to see the distance:</label></b>
+            <select id="topLocations" onchange="displayNearestLocations();">
+                <option value="38">All</option>
+                <option value="30">30</option>
+                <option value="20">20</option>
+                <option value="10" selected>10</option>
+            </select>
+        </div>
         <div id="nearestLocationsPanel" class="displayPanel nearestLocationsPanel">&nbsp;</div>
+        <div class="legendPanel directionsPanel"><h2>Driving Directions</h2></div>
         <div id="directionsPanel" class="displayPanel directionsPanel">&nbsp;</div>
+        <!-- div class="legendPanel drivingDistancePanel">Driving Distance</div -->
         <div id="drivingDistancePanel" class="displayPanel drivingDistancePanel">&nbsp;</div>
     </div>
 
