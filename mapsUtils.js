@@ -49,8 +49,8 @@ function initDOMListeners() {
 function onMarkerClick(event, map) {
     infoWindow.setPosition(event.feature.getGeometry().get());
     infoWindow.setOptions({ pixelOffset: new google.maps.Size(0, -30) });
-    //infoWindow.setContent(event.feature.getProperty('globantOffice'));
-    getInfoFromMarker(event);
+    infoWindow.setContent(event.feature.getProperty('globantOffice'));
+    // getInfoFromMarker(event);
     infoWindow.open(map);
     showDirectionsFromLocationMarker(event.feature);
 }

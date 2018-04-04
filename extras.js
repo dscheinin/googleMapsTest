@@ -53,3 +53,9 @@ function showDrivingDistancesFromLatLng(origin, positions) {
         }
     }
 }
+
+function exportJSON() {
+    map.data.toGeoJson(function(obj) {
+        document.getElementById('geoJson').innerHTML = JSON.stringify(obj, null, 2);
+      });
+}

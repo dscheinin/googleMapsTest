@@ -28,20 +28,18 @@ function loadGeoJSON () {
     }).then(function(jsonData){
         map.data.addGeoJson(jsonData);
         map.data.forEach(function(feature){
-            feature.setProperty('globantOffice', '');
-            var latlng = { lat: parseFloat(feature.getGeometry().get().lat()), lng: parseFloat(feature.getGeometry().get().lng()) };
-            geocoder.geocode({ 'location': latlng }, function(results, status) {
-                if (status === google.maps.GeocoderStatus.OK) {
-                    if (results[0]) {
-                        feature.setProperty('globantOffice',
-                            'Globant ' + buildGlobantLocation(results[0]));
+            if (feature.getProperty('globantOffice') === '') {
+                var latlng = { lat: parseFloat(feature.getGeometry().get().lat()), lng: parseFloat(feature.getGeometry().get().lng()) };
+                geocoder.geocode({ 'location': latlng }, function(results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            feature.setProperty('globantOffice',
+                                'Globant ' + buildGlobantLocation(results[0]));
+                        }
                     }
-                } else {
-                    feature.setProperty('globantOffice',
-                            'Globant {lat:' + parseFloat(feature.getGeometry().get().lat()) + ',lng:' + parseFloat(feature.getGeometry().get().lng()) + '}');
-                }
-            });
-        });    
+                });
+            }
+        });
     });
 }
 

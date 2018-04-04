@@ -75,6 +75,11 @@
     <div id="map"></div>
 
     <div class="container">
+        <div>
+            <b><label>Export JSON:</label></b>
+            <input type="button" value="Export" onclick="exportJSON();" />
+            <div id='geoJsonPanel'><pre id="geoJson"></pre></div>
+        </div>
         <div class="legendPanel nearestLocationsPanel"><h2>Nearest Locations</h2></div>
         <div class="legendPanel nearestLocationsPanel">
             <b><label for="topLocations">Select how many locations you want to see the distance:</label></b>
