@@ -59,3 +59,7 @@ function exportJSON() {
         document.getElementById('geoJson').innerHTML = JSON.stringify(obj, null, 2);
       });
 }
+
+function clearJSON() {
+    document.getElementById('geoJson').innerHTML = "";
+}
