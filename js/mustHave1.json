@@ -1,0 +1,346 @@
+{
+  "type": "FeatureCollection",
+  "features": [{
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-71.51996300000002, 42.2257455]
+    },
+    "properties": {
+      "globantOffice": "Globant Hopkinton/US"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-87.6449442, 41.8771364]
+    },
+    "properties": {
+      "globantOffice": "Globant Chicago/US"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-96.93610189999998, 32.862668]
+    },
+    "properties": {
+      "globantOffice": "Globant Irving/US"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-99.17678000000001, 19.3883385]
+    },
+    "properties": {
+      "globantOffice": "Globant México D.F./MX"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-80.19130799999999, 25.7636157]
+    },
+    "properties": {
+      "globantOffice": "Globant Miami/US"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-73.9894615, 40.7383765]
+    },
+    "properties": {
+      "globantOffice": "Globant New York/US"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-78.64339230000002, 35.8700075]
+    },
+    "properties": {
+      "globantOffice": "Globant Raleigh/US"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.40617459999999, 37.7818377]
+    },
+    "properties": {
+      "globantOffice": "Globant SF/US"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.33884760000001, 47.6112759]
+    },
+    "properties": {
+      "globantOffice": "Globant Seattle/US"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.33772240000002, 47.602735]
+    },
+    "properties": {
+      "globantOffice": "Globant Seattle/US"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-62.26922560000003, -38.7197067]
+    },
+    "properties": {
+      "globantOffice": "Globant Bahía Blanca/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-74.05638449999998, 4.6699561]
+    },
+    "properties": {
+      "globantOffice": "Globant Bogotá/CO"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-74.11039410000001, 4.6593609]
+    },
+    "properties": {
+      "globantOffice": "Globant Bogotá/CO"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-58.37305700000002, -34.5967272]
+    },
+    "properties": {
+      "globantOffice": "Globant CABA/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-58.47466680000002, -34.5440394]
+    },
+    "properties": {
+      "globantOffice": "Globant CABA/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-58.36891609999998, -34.6203285]
+    },
+    "properties": {
+      "globantOffice": "Globant CABA/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-64.19240539999998, -31.4070064]
+    },
+    "properties": {
+      "globantOffice": "Globant Córdoba/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-64.19358299999999, -31.4109511]
+    },
+    "properties": {
+      "globantOffice": "Globant Córdoba/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-57.96263369999997, -34.9221623]
+    },
+    "properties": {
+      "globantOffice": "Globant La Plata/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-77.062003, -12.0931412]
+    },
+    "properties": {
+      "globantOffice": "Globant Magdalena del Mar/PE"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-57.5375535, -38.0110887]
+    },
+    "properties": {
+      "globantOffice": "Globant Mar del Plata/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-75.56535869999999, 6.2080753]
+    },
+    "properties": {
+      "globantOffice": "Globant Medellín/CO"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-68.8436322, -32.8922335]
+    },
+    "properties": {
+      "globantOffice": "Globant Mendoza/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-56.19703579999998, -34.891176]
+    },
+    "properties": {
+      "globantOffice": "Globant Montevideo/UY"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-58.989208599999984, -27.4531012]
+    },
+    "properties": {
+      "globantOffice": "Globant Resistencia/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-60.66281049999998, -32.9267304]
+    },
+    "properties": {
+      "globantOffice": "Globant Rosario/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-60.6596859, -32.9538098]
+    },
+    "properties": {
+      "globantOffice": "Globant Rosario/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-70.57646399999999, -33.4056731]
+    },
+    "properties": {
+      "globantOffice": "Globant Las Condes/CL"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-46.69434239999998, -23.5698034]
+    },
+    "properties": {
+      "globantOffice": "Globant São Paulo/BR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-59.135979099999986, -37.3280185]
+    },
+    "properties": {
+      "globantOffice": "Globant Tandil/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-59.13617929999998, -37.327663]
+    },
+    "properties": {
+      "globantOffice": "Globant Tandil/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-65.30427729999997, -26.7995931]
+    },
+    "properties": {
+      "globantOffice": "Globant Yerba Buena/AR"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-0.11044040000001587, 51.5202185]
+    },
+    "properties": {
+      "globantOffice": "Globant London/GB"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [6.102370299999961, 49.8484791]
+    },
+    "properties": {
+      "globantOffice": "Globant Ettelbruck/LU"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-3.693736700000045, 40.4515611]
+    },
+    "properties": {
+      "globantOffice": "Globant Madrid/ES"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [77.64995320000003, 12.9159309]
+    },
+    "properties": {
+      "globantOffice": "Globant Bengaluru/IN"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [73.7364503, 18.5802866]
+    },
+    "properties": {
+      "globantOffice": "Globant Pune/IN"
+    }
+  }, {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [27.454593899999963, 53.9058195]
+    },
+    "properties": {
+      "globantOffice": "Globant Minsk/BY"
+    }
+  }]
+}
