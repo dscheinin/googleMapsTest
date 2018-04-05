@@ -1,4 +1,4 @@
-function showFeatureDistanceFromUserLocation() {
+/* function showFeatureDistanceFromUserLocation() {
     navigator.geolocation.getCurrentPosition(function(position) {
         userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         var distanceToArray = new Array();
@@ -53,7 +53,7 @@ function showDrivingDistancesFromLatLng(origin, positions) {
         }
     }
 }
-
+*/
 function exportJSON() {
     map.data.toGeoJson(function(obj) {
         document.getElementById('geoJson').innerHTML = JSON.stringify(obj, null, 2);
