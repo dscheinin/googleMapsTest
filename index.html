@@ -26,8 +26,8 @@
 
     <style>
         #map {
-            width: 100% !important;
-            height: 50% !important;
+            width: 100%;
+            height: 100%;
         }
     </style>
     <script src="js/mustHave2.js"></script>
@@ -54,7 +54,7 @@
                 </header>
                 <div class="mdl-grid">
                     <div class="mdl-card mdl-cell--12-col">
-                        <div class="mdl-card mdl-shadow--4dp mdl-cell--12-col">
+                        <div class="mdl-card mdl-cell--12-col">
                             <div class="mdl-card__title">
                                 <h3 class="mdl-card__title-text">
                                     <i class="material-icons">search</i>&nbsp;Select location</h3>
@@ -64,85 +64,70 @@
                                     <input class="mdl-textfield__input" type="text" id="addressInput">
                                 </div>
                             </div>
+                            <div style="width: 100%; height: 400px;">
+                                <div id="map"></div>
+                            </div>
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                        <div class="mdl-tabs__tab-bar">
+                            <a href="#tabNearest" class="mdl-tabs__tab is-active">
+                                <i class="material-icons">near_me</i>&nbsp;Nearest Locations</a>
+                            <a href="#tabDriving" class="mdl-tabs__tab">
+                                <i class="material-icons">directions</i>&nbsp;Driving Directions</a>
+                            <a href="#tabExport" class="mdl-tabs__tab">
+                                <i class="material-icons">cloud</i>&nbsp;Export JSON</a>
                         </div>
 
-                        <div class="mdl-card mdl-shadow--4dp mdl-cell--12-col">
+                        <div id="tabNearest" class="mdl-tabs__panel is-active">
                             <div class="mdl-card__title">
                                 <h3 class="mdl-card__title-text">
-                                    <i class="material-icons">map</i>&nbsp;Map</h3>
+                                    <i class="material-icons">near_me</i>&nbsp;Nearest Locations</h3>
+                            </div>
+                            <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+                                <b>
+                                    <label for="topLocations">Select how many locations you want to see the distance:</label>
+                                </b>
+                                <select id="topLocations" onchange="displayNearestLocations();">
+                                    <option value="38">All</option>
+                                    <option value="30">30</option>
+                                    <option value="20">20</option>
+                                    <option value="10" selected>10</option>
+                                </select>
+                            </div>
+                            <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+                                <div id="nearestLocationsPanel" class="displayPanel nearestLocationsPanel">&nbsp;</div>
+                            </div>
+
+                        </div>
+                        <div id="tabDriving" class="mdl-tabs__panel">
+                            <div class="mdl-card__title">
+                                <h3 class="mdl-card__title-text">
+                                    <i class="material-icons">directions</i>&nbsp;Driving Directions</h3>
                             </div>
                             <div class="mdl-layout-spacer"></div>
                             <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-
+                                <div id="directionsPanel" class="displayPanel directionsPanel">&nbsp;</div>
                             </div>
+                            <div class="mdl-layout-spacer"></div>
                         </div>
 
-
-                        <div id="map"></div>
-
-                    </div>
-                </div>
-
-                <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-                    <div class="mdl-tabs__tab-bar">
-                        <a href="#tabNearest" class="mdl-tabs__tab is-active">
-                            <i class="material-icons">near_me</i>&nbsp;Nearest Locations</a>
-                        <a href="#tabDriving" class="mdl-tabs__tab">
-                            <i class="material-icons">directions</i>&nbsp;Driving Directions</a>
-                        <a href="#tabExport" class="mdl-tabs__tab">
-                            <i class="material-icons">cloud</i>&nbsp;Export JSON</a>
-                    </div>
-
-                    <div id="tabNearest" class="mdl-tabs__panel is-active">
-                        <div class="mdl-card__media mdl-color-text--grey-50">
-                            <h3 class="mdl-card__title-text">
-                                <i class="material-icons">near_me</i>&nbsp;Nearest Locations</h3>
-                        </div>
-
-                        <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-                            <b>
-                                <label for="topLocations">Select how many locations you want to see the distance:</label>
-                            </b>
-                            <select id="topLocations" onchange="displayNearestLocations();">
-                                <option value="38">All</option>
-                                <option value="30">30</option>
-                                <option value="20">20</option>
-                                <option value="10" selected>10</option>
-                            </select>
-                        </div>
-
-                        <div class="mdl-layout-spacer"></div>
-
-                        <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-                            <div id="nearestLocationsPanel" class="displayPanel nearestLocationsPanel">&nbsp;</div>
-                        </div>
-                    </div>
-                    <div id="tabDriving" class="mdl-tabs__panel">
-                        <div class="mdl-card__media mdl-color-text--grey-50">
-                            <h3 class="mdl-card__title-text">
-                                <i class="material-icons">directions</i>&nbsp;Driving Directions</h3>
-                        </div>
-                        <div class="mdl-layout-spacer"></div>
-                        <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-                            <div id="directionsPanel" class="displayPanel directionsPanel">&nbsp;</div>
-                        </div>
-                        <div class="mdl-layout-spacer"></div>
-                    </div>
-
-                    <div id="tabExport" class="mdl-tabs__panel">
-                        <div class="mdl-card__media mdl-color-text--grey-50">
-                            <h3 class="mdl-card__title-text">
-                                <i class="material-icons">cloud</i>&nbsp;Export JSON</h3>
-                        </div>
-                        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                            <button type="button" class="mdl-chip" onclick="exportJSON();">
-                                <span class="mdl-chip__text">Export</span>
-                            </button>
-                            <button type="button" class="mdl-chip" onclick="clearJSON();">
-                                <span class="mdl-chip__text">Clear</span>
-                            </button>
-                            <div id='geoJsonPanel'>
-                                <pre id="geoJson"></pre>
+                        <div id="tabExport" class="mdl-tabs__panel">
+                            <div class="mdl-card__title">
+                                <h3 class="mdl-card__title-text">
+                                    <i class="material-icons">cloud</i>&nbsp;Export JSON</h3>
+                            </div>
+                            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                <button type="button" class="mdl-chip" onclick="exportJSON();">
+                                    <span class="mdl-chip__text">Export</span>
+                                </button>
+                                <button type="button" class="mdl-chip" onclick="clearJSON();">
+                                    <span class="mdl-chip__text">Clear</span>
+                                </button>
+                                <div id='geoJsonPanel'>
+                                    <pre id="geoJson"></pre>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -151,11 +136,6 @@
             <div class="mdl-layout__obfuscator"></div>
         </div>
     </div>
-    <!-- div id="listing">
-        <table id="resultsTable">
-            <tbody id="results"></tbody>
-        </table>
-    </div -->
     <script>
         function initMap() {
             initGlobalDOMShortcuts();
