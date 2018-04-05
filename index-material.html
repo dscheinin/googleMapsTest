@@ -55,9 +55,8 @@
                     <div class="mdl-card mdl-cell mdl-cell--12-col">
                         <div class="mdl-card mdl-cell mdl-cell--12-col">
                             <div class="mdl-card__media mdl-color-text--grey-50">
-                                <h3>Select location</h3>
+                                <h3><i class="material-icons">search</i>&nbsp;Select location</h3>
                             </div>
-                            <div class="mdl-layout-spacer"></div>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <input class="mdl-textfield__input" type="text" id="addressInput">
                             </div>
@@ -65,7 +64,7 @@
 
                         <div class="mdl-card mdl-cell mdl-cell--12-col">
                             <div class="mdl-card__media mdl-color-text--grey-50">
-                                <h3>Map</h3>
+                                <h3><i class="material-icons">map</i>&nbsp;Map</h3>
                             </div>
                             <div class="mdl-layout-spacer"></div>
                             <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
@@ -74,27 +73,15 @@
                         </div>
                         <div class="mdl-card mdl-cell mdl-cell--12-col">
                             <div class="mdl-card__media mdl-color-text--grey-50">
-                                <h3>Export JSON</h3>
+                                <h3><i class="material-icons">cloud</i>&nbsp;Export JSON</h3>
                             </div>
                             <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                <a href="#" onclick="exportJSON();" class="demo-nav__button" title="Export JSON">
-                                    Export
-                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" data-upgraded=",MaterialButton,MaterialRipple">
-                                        <i class="material-icons" role="presentation">arrow_forward</i>
-                                        <span class="mdl-button__ripple-container">
-                                            <span class="mdl-ripple">Export</span>
-                                        </span>
-                                    </button>
-                                </a>
-                                <a href="#" onclick="clearJSON();" class="demo-nav__button" title="Clear Panel">
-                                    Clear Panel
-                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" data-upgraded=",MaterialButton,MaterialRipple">
-                                        <i class="material-icons" role="presentation">arrow_forward</i>
-                                        <span class="mdl-button__ripple-container">
-                                            <span class="mdl-ripple">Export</span>
-                                        </span>
-                                    </button>
-                                </a>
+                                <button type="button" class="mdl-chip" onclick="exportJSON();">
+                                    <span class="mdl-chip__text">Export</span>
+                                </button>
+                                <button type="button" class="mdl-chip" onclick="clearJSON();">
+                                    <span class="mdl-chip__text">Clear</span>
+                                </button>
                                 <div id='geoJsonPanel'>
                                     <pre id="geoJson"></pre>
                                 </div>
@@ -102,7 +89,7 @@
                         </div>
                         <div class="mdl-card mdl-cell mdl-cell--12-col">
                             <div class="mdl-card__media mdl-color-text--grey-50">
-                                <h3>Nearest Locations</h3>
+                                <h3><i class="material-icons">near_me</i>&nbsp;Nearest Locations</h3>
                             </div>
 
                             <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
@@ -125,7 +112,7 @@
                         </div>
                         <div class="mdl-card mdl-cell mdl-cell--12-col">
                             <div class="mdl-card__media mdl-color-text--grey-50">
-                                <h3>Driving Directions</h3>
+                                <h3><i class="material-icons">directions</i>&nbsp;Driving Directions</h3>
                             </div>
                             <div class="mdl-layout-spacer"></div>
                             <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
