@@ -1,108 +1,161 @@
 <!DOCTYPE html >
-<html>
+<html lang="en">
+
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Globant branch offices locator on Google Maps</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/globant.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/globant.png">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-green.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
     <style>
         #map {
-            height: 100%;
-        }
-        
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 1%;
-            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-        }
-        
-        .container {
-            position: relative;
-        }
-        
-        .displayPanel {
-            clear: both;
-            padding: 1%;
-            min-height: 1em;
-        }
-        
-        .legendPanel {
-            padding: 1%;
-            height: 1em;
-            font-weight: bolder;
-        }
-        
-        .drivingDistancePanel {
-            background-color: blue;
-            visibility: hidden;
-        }
-        
-        .directionsPanel {
-            background-color:lightslategrey;
-        }
-        
-        .nearestLocationsPanel {
-            background-color:lightgray;
-        }
-        
-        #map {
-            width: 100%;
-            height: 50%
+            width: 100% !important;
+            height: 50% !important;
         }
     </style>
-    <script src="mustHave2.js"></script>
-    <script src="mustHave3.js"></script>
-    <script src="mustHave4.js"></script>
-    <script src="mustHave5.js"></script>
-    <script src="goodToHave1.js"></script>
-    <script src="goodToHave2.js"></script>
-    <script src="extras.js"></script>
-    <script src="mapsUtils.js"></script>
+    <script src="js/mustHave2.js"></script>
+    <script src="js/mustHave3.js"></script>
+    <script src="js/mustHave4.js"></script>
+    <script src="js/mustHave5.js"></script>
+    <script src="js/goodToHave1.js"></script>
+    <script src="js/goodToHave2.js"></script>
+    <script src="js/extras.js"></script>
+    <script src="js/mapsUtils.js"></script>
 </head>
 
-<body style="margin:0px; padding:0px;">
-    <div>
-        <h1>Globant branch offices locator on Google Maps</h1>
-    </div>
-    <div>
-        <h2>
-            <label for="addressInput">Search location:</label>
-            <input type="text" id="addressInput" size="50" />
-        </h2>
-    </div>
+<body>
+    <div class="mdl-layout__container">
+        <div class="mdl-layout mdl-js-layout">
+            <main class="mdl-layout__content">
+                <header class="mdl-layout__header mdl-layout__header">
+                    <div class="mdl-layout__header-row">
+                        <!-- Title -->
+                        <span class="mdl-layout-title">Globant branch offices locator on Google Maps</span>
+                        <!-- Add spacer, to align navigation to the right -->
+                        <div class="mdl-layout-spacer"></div>
+                    </div>
+                </header>
+                <div class="mdl-grid">
+                    <div class="mdl-card mdl-cell--12-col">
+                        <div class="mdl-card mdl-shadow--4dp mdl-cell--12-col">
+                            <div class="mdl-card__title">
+                                <h3 class="mdl-card__title-text">
+                                    <i class="material-icons">search</i>&nbsp;Select location</h3>
+                            </div>
+                            <div class="mdl-supporting-text">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" id="addressInput">
+                                </div>
+                            </div>
+                        </div>
 
-    <div id="map"></div>
+                        <div class="mdl-card mdl-shadow--4dp mdl-cell--12-col">
+                            <div class="mdl-card__title">
+                                <h3 class="mdl-card__title-text">
+                                    <i class="material-icons">map</i>&nbsp;Map</h3>
+                            </div>
+                            <div class="mdl-layout-spacer"></div>
+                            <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
 
-    <div class="container">
-        <div>
-            <b><label>Export JSON:</label></b>
-            <input type="button" value="Export" onclick="exportJSON();" />
-            <input type="button" value="Clear" onclick="clearJSON();" />
-            <div id='geoJsonPanel'><pre id="geoJson"></pre></div>
+                            </div>
+                        </div>
+
+
+                        <div id="map"></div>
+
+                    </div>
+                </div>
+
+                <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                    <div class="mdl-tabs__tab-bar">
+                        <a href="#tabNearest" class="mdl-tabs__tab is-active">
+                            <i class="material-icons">near_me</i>&nbsp;Nearest Locations</a>
+                        <a href="#tabDriving" class="mdl-tabs__tab">
+                            <i class="material-icons">directions</i>&nbsp;Driving Directions</a>
+                        <a href="#tabExport" class="mdl-tabs__tab">
+                            <i class="material-icons">cloud</i>&nbsp;Export JSON</a>
+                    </div>
+
+                    <div id="tabNearest" class="mdl-tabs__panel is-active">
+                        <div class="mdl-card__media mdl-color-text--grey-50">
+                            <h3 class="mdl-card__title-text">
+                                <i class="material-icons">near_me</i>&nbsp;Nearest Locations</h3>
+                        </div>
+
+                        <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+                            <b>
+                                <label for="topLocations">Select how many locations you want to see the distance:</label>
+                            </b>
+                            <select id="topLocations" onchange="displayNearestLocations();">
+                                <option value="38">All</option>
+                                <option value="30">30</option>
+                                <option value="20">20</option>
+                                <option value="10" selected>10</option>
+                            </select>
+                        </div>
+
+                        <div class="mdl-layout-spacer"></div>
+
+                        <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+                            <div id="nearestLocationsPanel" class="displayPanel nearestLocationsPanel">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div id="tabDriving" class="mdl-tabs__panel">
+                        <div class="mdl-card__media mdl-color-text--grey-50">
+                            <h3 class="mdl-card__title-text">
+                                <i class="material-icons">directions</i>&nbsp;Driving Directions</h3>
+                        </div>
+                        <div class="mdl-layout-spacer"></div>
+                        <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+                            <div id="directionsPanel" class="displayPanel directionsPanel">&nbsp;</div>
+                        </div>
+                        <div class="mdl-layout-spacer"></div>
+                    </div>
+
+                    <div id="tabExport" class="mdl-tabs__panel">
+                        <div class="mdl-card__media mdl-color-text--grey-50">
+                            <h3 class="mdl-card__title-text">
+                                <i class="material-icons">cloud</i>&nbsp;Export JSON</h3>
+                        </div>
+                        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                            <button type="button" class="mdl-chip" onclick="exportJSON();">
+                                <span class="mdl-chip__text">Export</span>
+                            </button>
+                            <button type="button" class="mdl-chip" onclick="clearJSON();">
+                                <span class="mdl-chip__text">Clear</span>
+                            </button>
+                            <div id='geoJsonPanel'>
+                                <pre id="geoJson"></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <div class="mdl-layout__obfuscator"></div>
         </div>
-        <div class="legendPanel nearestLocationsPanel"><h2>Nearest Locations</h2></div>
-        <div class="legendPanel nearestLocationsPanel">
-            <b><label for="topLocations">Select how many locations you want to see the distance:</label></b>
-            <select id="topLocations" onchange="displayNearestLocations();">
-                <option value="38">All</option>
-                <option value="30">30</option>
-                <option value="20">20</option>
-                <option value="10" selected>10</option>
-            </select>
-        </div>
-        <div id="nearestLocationsPanel" class="displayPanel nearestLocationsPanel">&nbsp;</div>
-        <div class="legendPanel directionsPanel"><h2>Driving Directions</h2></div>
-        <div id="directionsPanel" class="displayPanel directionsPanel">&nbsp;</div>
-        <!-- div class="legendPanel drivingDistancePanel">Driving Distance</div -->
-        <div id="drivingDistancePanel" class="displayPanel drivingDistancePanel">&nbsp;</div>
     </div>
-
-    <div id="listing">
+    <!-- div id="listing">
         <table id="resultsTable">
             <tbody id="results"></tbody>
         </table>
-    </div>
+    </div -->
     <script>
         function initMap() {
             initGlobalDOMShortcuts();
@@ -117,7 +170,7 @@
 
             initDirectionsDisplay();
 
-            showFeatureDistanceFromUserLocation();
+            // showFeatureDistanceFromUserLocation();
 
             displayNearestLocations();
         }
