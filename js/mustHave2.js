@@ -23,29 +23,44 @@ function displayAllLocations() {
 
 function loadGeoJSON() {
     //return await map.data.loadGeoJson('mustHave1.json');
-    fetch('mustHave1.json').then(function (features) {
+    fetch('js/mustHave1.json').then(function (features) {
         return features.json();
     }).then(function (jsonData) {
         map.data.addGeoJson(jsonData);
         map.data.forEach(function (feature) {
-            if (feature.getProperty('globantOffice') === '') {
-                var latlng = {
-                    lat: parseFloat(feature.getGeometry().get().lat()),
-                    lng: parseFloat(feature.getGeometry().get().lng())
-                };
-                geocoder.geocode({
-                    'location': latlng
-                }, function (results, status) {
-                    if (status === google.maps.GeocoderStatus.OK) {
-                        if (results[0]) {
-                            feature.setProperty('globantOffice',
-                                'Globant ' + buildGlobantLocation(results[0]));
-                        }
-                    }
-                });
-            }
+            addPropertyTo(feature, 'globantOffice', getGlobantLocation);
+            addPropertyTo(feature, 'country', getGlobantCountry);
         });
     });
+}
+
+function addPropertyTo(feature, property, fallback) {
+    if (feature.getProperty(property) === undefined) {
+        var latlng = {
+            lat: parseFloat(feature.getGeometry().get().lat()),
+            lng: parseFloat(feature.getGeometry().get().lng())
+        };
+        geocoder.geocode({
+            'location': latlng
+        }, function (results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    feature.setProperty(property, fallback(results[0]));
+                }
+            }
+        });
+    }
+}
+
+function getGlobantLocation(address) {
+    return 'Globant ' + buildGlobantLocation(address);
+}
+
+function getGlobantCountry(address) {
+    return {
+        long: extractLongNameFrom(address.address_components, "country"),
+        short: extractShortNameFrom(address.address_components, "country")
+    }
 }
 
 function displayNearestLocations() {
@@ -57,7 +72,8 @@ function displayNearestLocations() {
         distanceToLocation.push({
             distance: distance,
             feature: feature.getGeometry().get(),
-            name: feature.getProperty('globantOffice')
+            name: feature.getProperty('globantOffice'),
+            country: feature.getProperty('country')
         });
     });
     showNearestLocations(distanceToLocation);
@@ -73,8 +89,8 @@ function showNearestLocations(distanceToLocation) {
         addStringToDivInnerHTML(nearestLocationsPanel,
             '<li class="mdl-list__item">' +
             '<span class="mdl-list__item-primary-content">' +
-            '<i class="material-icons mdl-list__item-icon"></i>' +
-            'To ' + element.name + ' ' +
+            '<i class="flag-icon flag-icon-' + element.country.short.toLowerCase() + '"></i>' +
+            '&nbsp;To ' + element.name + ' ' +
             element.distance.toFixed(2) + 'km' +
             '</span>' +
             '</li>');

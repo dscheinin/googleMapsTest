@@ -39,7 +39,7 @@ function buildMap() {
 }
 
 function initDOMListeners() {
-    map.data.addListener('click', function(event) {
+    map.data.addListener('click', function (event) {
         onMarkerClick(event, map);
     });
 
@@ -47,10 +47,17 @@ function initDOMListeners() {
 }
 
 function onMarkerClick(event, map) {
-    infoWindow.setPosition(event.feature.getGeometry().get());
-    infoWindow.setOptions({ pixelOffset: new google.maps.Size(0, -30) });
-    infoWindow.setContent(event.feature.getProperty('globantOffice'));
-    // getInfoFromMarker(event);
+    var location = event.feature;
+    infoWindow.setPosition(location.getGeometry().get());
+    infoWindow.setOptions({
+        pixelOffset: new google.maps.Size(0, -30)
+    });
+
+    infoWindow.setContent(
+        '<div><b>' + location.getProperty('globantOffice') + '</b><br>' +
+        '<i class="flag-icon flag-icon-' + location.getProperty('country').short.toLowerCase() + '"></i>' +
+        '&nbsp;(Globant ' + location.getProperty('country').long + ')' +
+        '</div>');
     infoWindow.open(map);
     showDirectionsFromLocationMarker(event.feature);
 }
@@ -64,13 +71,23 @@ function extractShortNameFrom(addressComponents, component) {
     return '';
 }
 
+function extractLongNameFrom(addressComponents, component) {
+    for (var i = 0; i < addressComponents.length; i++) {
+        if (addressComponents[i].types[0] == component) {
+            return addressComponents[i].long_name;
+        }
+    }
+    return '';
+}
+
+
 function showCurrentPosition(latLng) {
     window.currentPositionMarker = new google.maps.Marker({
         position: latLng,
         map: map,
         animation: google.maps.Animation.DROP
     });
-    google.maps.event.addListener(currentPositionMarker, 'click', function() {
+    google.maps.event.addListener(currentPositionMarker, 'click', function () {
         infoWindow.setContent("You are here!");
         infoWindow.open(map, currentPositionMarker);
     });

@@ -6,7 +6,10 @@ function getInfoFromMarker(marker) {
                 infoWindow.setContent(
                     '<div><b>Globant ' +
                     buildGlobantLocation(results[0]) +
-                    '</b></div>');
+                    '</b><br>' + 
+                    '<i class="flag-icon flag-icon-' + element.country.short.toLowerCase() + '"></i>' +
+                    '&nbsp;(Globant ' + element.country.long + ')' +
+                    '</div>');
             }
         }
     });
