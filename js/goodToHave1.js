@@ -1,7 +1,9 @@
 function initAutocomplete() {
     // add Autocomplete suport
     var autocomplete = new google.maps.places.Autocomplete(
-        (document.getElementById('addressInput')));
+    (document.getElementById('addressInput')),{types: ['(regions)']});
+    //(document.getElementById('addressInput')),{types: ['(cities)']});
+    //(document.getElementById('addressInput')));
     autocomplete.bindTo('bounds', map);
 
     // add event to handle autocomplete
@@ -23,6 +25,7 @@ function initAutocomplete() {
             map.setCenter(place.geometry.location);
             map.setZoom(6);
         }
+        window.alert("Location: " + place.geometry.location);
         showCurrentPosition(place.geometry.location);
         currentPositionMarker.setVisible(true);
         displayNearestLocations();
